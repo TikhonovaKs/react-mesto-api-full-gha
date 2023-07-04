@@ -1,0 +1,14 @@
+.error {
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(255, 0, 0, 1);
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  left: 36px;
+  top: 143px;
+}
+
+.error:last-of-type {
+    top: 200px;
+}
