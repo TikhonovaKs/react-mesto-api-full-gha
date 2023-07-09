@@ -35,6 +35,7 @@ function AddPlacePopup({ isOpen, onClose, onAddPlace }) {
       buttonName="Создать"
       buttonNameIsLoad="Создание..."
       onSubmit={handleAddPlaceSubmit}
+      formName="add-place-form"
     >
       <input
         id="input-place"

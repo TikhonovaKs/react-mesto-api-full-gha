@@ -1,0 +1,32 @@
+.authentication__input {
+  width: 358px;
+  height: 14px;
+  padding-bottom: 13px;
+  border: none;
+  margin: 0 0 30px 0;
+  font-size: 14px;
+  line-height: 17px;
+  border-bottom: 2px solid rgba(204, 204, 204, 1);
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(204, 204, 204, 1);
+}
+
+.authentication__input:last-of-type {
+  margin: 0 0 216px 0;
+}
+
+/* @media screen and (max-width: 640px) {
+  .authentication__input {
+    width: 238px;
+    padding: 0 0 13px 0;
+    margin: 0 22px 30px 22px;
+  }
+
+  .authentication__input:last-of-type {
+    margin: 0 22px 45px 22px;
+  }
+} */
+
+.authentication__input.authentication__input_type_error {
+  border-color: rgba(255, 0, 0, 1);
+}

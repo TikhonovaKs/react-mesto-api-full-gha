@@ -45,6 +45,7 @@ function EditProfilePopup({ isOpen, onClose, onUpdateUser }) {
       onSubmit={handleSubmit}
       buttonName="Сохранить"
       buttonNameIsLoad="Сохранение..."
+      formName="edit-profile-form"
     >
       <input
         id="input-name"

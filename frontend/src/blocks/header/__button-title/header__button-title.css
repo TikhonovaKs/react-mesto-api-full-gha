@@ -1,0 +1,13 @@
+.header__button-title {
+  font-size: 18px;
+  line-height: 22px;
+  color: rgba(255, 255, 255, 1);
+  text-decoration: none;
+  text-align: center;
+  margin: 0;
+}
+
+.header__button-title:hover {
+  opacity: 80%;
+  transition: 0.25s ease-in-out;
+}

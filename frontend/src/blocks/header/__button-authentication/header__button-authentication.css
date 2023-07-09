@@ -1,0 +1,10 @@
+.header__button-authentication {
+  /* width: 358px; */
+  height: 22px;
+  border: none;
+  text-align: left;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+}

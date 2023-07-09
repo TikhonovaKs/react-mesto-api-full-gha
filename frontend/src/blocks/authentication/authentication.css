@@ -1,0 +1,8 @@
+.authentication {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 358px;
+  justify-content: center;
+  margin: 60px auto 0 auto;
+}
