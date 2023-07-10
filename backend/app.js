@@ -22,8 +22,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
 // устанавливает middleware для парсинга JSON-тела запросов
 app.use(express.json());
 
-app.use('/api', singInRoutes);
-app.use('/api', singUpRoutes);
+app.use('/', singInRoutes);
+app.use('/', singUpRoutes);
 
 app.use(cookieParser());
 
