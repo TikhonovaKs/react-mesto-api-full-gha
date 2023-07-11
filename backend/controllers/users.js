@@ -45,7 +45,7 @@ const login = (req, res, next) => {
             httpOnly: true,
             sameSite: true,
           });
-          res.send({ data: user.toJSON() });
+          res.send({ ...user.toJSON(), token: jwt });
         } else {
           throw new UnauthorizedError('Incorrect password or email');
         }
