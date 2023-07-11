@@ -1,3 +1,9 @@
+// app.js
+
+require('dotenv').config();
+
+console.log(process.env.NODE_ENV); // production
+
 // хеширование паролей и сравнение хэшей паролей с их исходными значениями:
 const bcrypt = require('bcryptjs');
 const jsonWebToken = require('jsonwebtoken');
@@ -32,6 +38,7 @@ const createUser = (req, res, next) => {
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
+  const { NODE_ENV, JWT_SECRET } = process.env;
 
   return User.findOne({ email })
     .select('+password')
@@ -39,7 +46,7 @@ const login = (req, res, next) => {
     .then((user) => bcrypt.compare(String(password), user.password)
       .then((isValidUser) => {
         if (isValidUser) {
-          const jwt = jsonWebToken.sign({ _id: user._id }, 'SECRET', { expiresIn: '1w' });
+          const jwt = jsonWebToken.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '1w' });
           res.cookie('jwt', jwt, {
             maxAge: 36000,
             httpOnly: true,
