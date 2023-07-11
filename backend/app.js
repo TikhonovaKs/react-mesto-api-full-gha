@@ -28,7 +28,7 @@ const singUpRoutes = require('./routes/signup');
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
   'https://kseniia-mesto.nomoreparties.sbs',
-  'http://ksenia-mesto.nomoreparties.sbs',
+  'https://ksenia-mesto.nomoreparties.sbs',
   'http://localhost:3000',
   'http://localhost:3001',
 ];
