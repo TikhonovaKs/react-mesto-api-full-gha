@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 158.160.9.113
+IP 158.160.9.113
 
 Frontend https://ksenia-mesto.nomoreparties.sbs
 
