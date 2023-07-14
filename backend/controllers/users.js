@@ -3,6 +3,7 @@
 require('dotenv').config();
 
 console.log(process.env.NODE_ENV); // production
+console.log(process.env.JWT_SECRET); // production
 
 // хеширование паролей и сравнение хэшей паролей с их исходными значениями:
 const bcrypt = require('bcryptjs');
@@ -42,17 +43,17 @@ const login = (req, res, next) => {
 
   return User.findOne({ email })
     .select('+password')
-    .orFail(() => new Error('Пользователь не найден'))
+    .orFail(() => new UnauthorizedError('Пользователь не найден'))
     .then((user) => bcrypt.compare(String(password), user.password)
       .then((isValidUser) => {
         if (isValidUser) {
           const jwt = jsonWebToken.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '1w' });
           res.cookie('jwt', jwt, {
             maxAge: 36000,
-            httpOnly: true,
+            httpOnly: NODE_ENV === 'production',
             sameSite: true,
           });
-          res.send({ ...user.toJSON(), token: jwt });
+          res.send(user.toJSON());
         } else {
           throw new UnauthorizedError('Incorrect password or email');
         }
