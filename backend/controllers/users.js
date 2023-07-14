@@ -53,7 +53,7 @@ const login = (req, res, next) => {
           //   // httpOnly: false,
           //   // sameSite: true,
           // });
-          res.send({ ...user.toJSON(), jwt });
+          res.send({ ...user.toJSON(), token: jwt });
         } else {
           throw new UnauthorizedError('Incorrect password or email');
         }

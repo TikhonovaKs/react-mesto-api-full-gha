@@ -206,7 +206,7 @@ function App() {
       // обрабатываем успешное выполнение промиса, получив данные из ответа API в data.
       .then((data) => {
         // Проверяем, есть ли у полученных данных токен (data.token).
-        const jwtToken=data.jwt;
+        const jwtToken=data.token;
         if (jwtToken) {
           // Если токен существует, сохраняем токен в локальном хранилище:
           localStorage.setItem('jwt', jwtToken);
