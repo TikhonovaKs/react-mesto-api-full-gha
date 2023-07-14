@@ -50,7 +50,7 @@ const login = (req, res, next) => {
           const jwt = jsonWebToken.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '1w' });
           res.cookie('jwt', jwt, {
             maxAge: 36000,
-            httpOnly: NODE_ENV === 'production',
+            httpOnly: false,
             sameSite: true,
           });
           res.send(user.toJSON());
