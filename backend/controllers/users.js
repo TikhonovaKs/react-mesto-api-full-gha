@@ -3,7 +3,6 @@
 require('dotenv').config();
 
 console.log(process.env.NODE_ENV); // production
-console.log(process.env.JWT_SECRET); // production
 
 // хеширование паролей и сравнение хэшей паролей с их исходными значениями:
 const bcrypt = require('bcryptjs');
