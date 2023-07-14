@@ -47,13 +47,13 @@ const login = (req, res, next) => {
       .then((isValidUser) => {
         if (isValidUser) {
           const jwt = jsonWebToken.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret', { expiresIn: '1w' });
-          res.cookie('jwt', jwt, {
-            maxAge: 36000,
-            domain: NODE_ENV === 'production' ? '.nomoreparties.sbs' : 'localhost',
-            // httpOnly: false,
-            // sameSite: true,
-          });
-          res.send(user.toJSON());
+          // res.cookie('jwt', jwt, {
+          //   maxAge: 36000,
+          //   // domain: NODE_ENV === 'production' ? '.nomoreparties.sbs' : 'localhost',
+          //   // httpOnly: false,
+          //   // sameSite: true,
+          // });
+          res.send({ ...user.toJSON(), jwt });
         } else {
           throw new UnauthorizedError('Incorrect password or email');
         }

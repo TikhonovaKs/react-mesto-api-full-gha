@@ -206,7 +206,7 @@ function App() {
       // обрабатываем успешное выполнение промиса, получив данные из ответа API в data.
       .then((data) => {
         // Проверяем, есть ли у полученных данных токен (data.token).
-        const jwtToken=getCookie("jwt");
+        const jwtToken=data.jwt;
         if (jwtToken) {
           // Если токен существует, сохраняем токен в локальном хранилище:
           localStorage.setItem('jwt', jwtToken);
@@ -220,21 +220,6 @@ function App() {
         console.log(err);
       });
   };
-  function getCookie(cname) {
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) === ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) === 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
   function setLoggedUserData(email, url) {
     setLoggedIn(true);
     // обновляем данные пользователя для отображения в шапке профиля:
