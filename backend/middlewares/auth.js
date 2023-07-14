@@ -5,7 +5,8 @@ const auth = (req, res, next) => {
   const token = req.cookies.jwt;
   const { NODE_ENV, JWT_SECRET } = process.env;
   if (!token) {
-    throw new UnauthorizedError('Authorisation error');
+    next(new UnauthorizedError('Unauthorized request'));
+    return;
   }
 
   let payload;
@@ -18,6 +19,7 @@ const auth = (req, res, next) => {
     } else {
       next(err);
     }
+    return;
   }
   req.user = payload;
   next();

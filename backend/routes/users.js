@@ -19,7 +19,11 @@ router.get('/me', getUserInfo);
 
 router.get('/:id', celebrate({
   params: Joi.object().keys({
-    id: Joi.string().length(24).hex().required(),
+    id: Joi
+      .string()
+      .length(24)
+      .hex()
+      .required(),
   }),
 }), getUserById);
 
@@ -27,6 +31,7 @@ router.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
     avatar: Joi
       .string()
+      .required()
       .pattern(URL_REGULAR_EXPRESSION),
   }),
 }), updateAvatar);
